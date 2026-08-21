@@ -1,0 +1,60 @@
+1.6 Exercícios
+1. Como seria utilizar um computador sem um sistema operacional? Quais são suas
+duas principais funções?
+2. Quais as principais dificuldades que um programador teria no desenvolvimento de
+uma aplicação em um ambiente sem um sistema operacional?
+3. Explique o conceito de máquina virtual. Qual a grande vantagem em utilizar este
+conceito?
+4. Defina o conceito de uma máquina de camadas.
+5. Quais os tipos de sistemas operacionais existentes?
+6. Por que dizemos que existe uma subutilização de recursos em sistemas
+monoprogramáveis?
+7. Qual a grande diferença entre sistemas monoprogramáveis e sistemas
+multiprogramáveis?
+8. Quais as vantagens dos sistemas multiprogramáveis?
+9. Um sistema monousuário pode ser um sistema multiprogramável? Dê um exemplo.
+10. Quais são os tipos de sistemas multiprogramáveis?
+11. O que caracteriza o processamento batch? Quais aplicações podem ser
+processadas neste tipo de ambiente?
+12. Como funcionam os sistemas de tempo compartilhado? Quais as vantagens em
+utilizá-los?
+13. Qual a grande diferença entre sistemas de tempo compartilhado e tempo real?
+Quais aplicações são indicadas para sistemas de tempo real?
+14. O que são sistemas com múltiplos processadores e quais as vantagens em
+utilizá-los?
+15. Qual a grande diferença entre sistemas fortemente acoplados e fracamente
+acoplados?
+16. O que é um sistema SMP? Qual a diferença para um sistema assimétrico?
+17. O que é um sistema fracamente acoplado? Qual a diferença entre sistemas
+operacionais de rede e sistemas operacionais distribuídos?
+18. Quais os benefícios de um sistema com múltiplos processadores em um computador
+pessoal?
+19. Qual seria o tipo de sistema operacional recomendável para uso como servidor de
+aplicações em um ambiente corporativo?
+20. Qual seria o tipo de sistema operacional recomendável para executar uma aplicação
+que manipula grande volume de dados e necessita de um baixo tempo de
+processamento?
+
+2.4 Exercícios
+1. Quais são as unidades funcionais de um sistema computacional?
+2. Quais os componentes de um processador e quais são suas funções?
+3. Como a memória principal de um computador é organizada?
+4. Descreva os ciclos de leitura e gravação da memória principal.
+5. Qual o número máximo de células endereçadas em arquiteturas com MAR de 16, 32
+e 64 bits?
+6. O que são memórias voláteis e não voláteis?
+7. Conceitue memória cache e apresente as principais vantagens no seu uso.
+8. Qual a importância do princípio da localidade na eficiência da memória cache?
+9. Quais os benefícios de uma arquitetura de memória cache com múltiplos níveis?
+10. Quais as diferenças entre a memória principal e a memória secundária?
+11. Diferencie as funções básicas dos dispositivos de E/S.
+12. Caracterize os barramentos processador-memória, E/S e backplane.
+13. Como a técnica de pipelining melhora o desempenho dos sistemas computacionais?
+14. Compare as arquiteturas de processadores RISC e CISC.
+15. Conceitue a técnica de benchmark e como é sua realização.
+16. Por que o código-objeto gerado pelo tradutor ainda não pode ser executado?
+17. Por que a execução de programas interpretados é mais lenta que a de programas
+compilados?
+18. Quais as funções do linker?
+19. Qual a principal função do loader?
+20. Quais as facilidades oferecidas pelo depurador?

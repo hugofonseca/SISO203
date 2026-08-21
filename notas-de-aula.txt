@@ -1,0 +1,299 @@
+11/08/2026
+Aula 01 - Aula Introdutoria
+- por que é necessário um SO?
+    O ENIAC não tinha SO
+    Alta complexidade
+    hardware, software, entrada e saida
+    interface com os componentes
+    recursos, memoria
+    difernça programas utilitarios e programas de aplicação
+    multirarefa?
+
+- diferença entre montadores, compiladores e interpretadores
+    Em c, script gera um executavel. em python acontece dentro da memoria?
+    linguagens tem diferentes niveis de abstração
+
+- Aplicações IO-bound vs CPU bound vs multiprogramação
+    exemplos: processo em 2º plano, software cx supermercado,
+    main frame com terminais acessando processamento do main frame
+
+- Spooling tem haver com fila de impressão de uma impressora?
+
+- TimeSharing
+
+- UNIX (TimeSharing system)
+
+- DOS (É mono-usuario; o cmd do windows é o terminal do DOS)
+
+- MAC OS (sistema baseado em gui [graphic user interface] ou seja janelas)
+
+- Computação distribuida, sistemas multiprocessados, redes
+
+- TREINAR QUESTÕES DE CONCURSO DE S.O.
+
+- Relacionar evolução dos SOs com evolução do hardware
+
+- o conceito de serviço é parecido com o de processos?
+
+- Diferença entre SOs 
+    distribuídos, em rede, orientado obj, tempo real, embarcados
+    monoprogramáveis, multiprogramáveis, multiprocessados
+        Detalhar esta classificação
+        multiprocessados: escalabilidade, disponibilidade, balanceamento
+    batch (lote, automatizar backup), tempo compartilhado(cada programa ) ou tempo real (turbina hidreletrica)
+        batch ñ tem IO
+        tempo compartilhado tipo multitarefa, dar alt tab, gerencia de processo
+
+- PAROU NO SLIDE 32
+
+LEITURA LIVRO Arquitetura de Computadores Cáp i:
+    "máquina de camadas" (esquema):
+        aplicações
+        utilitários
+        sistema operacional
+        linguagem de máquina
+        microprogramação
+        circuitos eletrônicos
+    
+    "processamento batch" (esquema):
+        (a)cartões perfurados[job 1, job 2, job n]->processamento->fita de entrada
+        (b)fita de entrada->processamento->fita de saída
+        (c)fita de saída->processamento->relatórios[relat.1, relat.2, relat.n]
+    
+    "classificação dos sistemas operacionais" (esquema):
+        por Tipo:
+            - sistemas MONOprogramáveis/MONOtarefa
+            - sistemas MULTIprogramáveis/MULTItarefa
+            - sistemas com múltiplos processadores
+        
+    
+    sistemas MONOprogramáveis/MONOtarefa:
+        Projetados para executar UM ÚNICO programa.
+        Qualquer outra aplicação, para ser executada, deveria aguardar o término do
+        programa corrente.
+        Recursos (UCP, memória, E/S) exclusivamente dedicados a UM ÚNICO programa.
+        Recursos ficam ociosos ou subutilizados (processador aguardando uma
+        entrada de dados do usuário, periférios limitados a único usuário também
+        nem sempre são utilizados de forma integral).
+        A implementação é simples.
+    
+    sistemas MULTIprogramáveis/MULTItarefa:
+        Projetados para compartilhar os recursos com diversos usuários e
+        aplicações.
+        Em um mesmo intervalo de tempo, um programa aguarda uma escrita no disco,
+        enquanto outros programas são processados.
+        O sistema GERENCIA o acesso CONCORRENTE aos seus diversos RECURSOS, 
+        de maneira ORDENADA e PROTEGIDA, entre diversos PROGRAMAS.
+        Principal vantagem é redução de custos decorrente da possibilidade do
+        compartilhamento de recursos entre as aplicações.
+        A implementação é complexa.
+        Classificação pela quantidade de usuários:
+            - sistemas MULTIprogramáveis MONOusuário:
+                São instalados em PCs ou estações de trabalho.
+                É multitarefa.
+            - sistemas MULTIprogramáveis MULTIusuário:
+                São instalados em ambientes interativos.
+                Há diversos usuários conectados ao sistema simultaneamente.
+        Classificação pela forma de gerenciamento das aplicações:
+        *Um S.O. pode suportar 1 ou mais desses tipos de processamento.
+            - sistemas MULTIprogramáveis batch:
+                A execução dos programas é através de cartões perfurados, fitas e
+                discos, conforme descrito abaixo.
+                Esse tipo de processamento NÃO EXIGE interação entre user e app.
+                E/S de dados é através de memório secundária
+                Exemplos de programas ORIGINALMENTE processados em batch.
+                backups, ordenações, compilações, folha pgto e cálculos.
+                O processamento pode ser eficiente, porém longo tempo de resposta.
+                Atualmente, os SOs  até implementam ou simulam essa lógica, porém 
+                não há SOs atuais exclusivamente batch.
+                (a)cartões perfurados[job 1, job 2, job n]->processamento->fita de entrada
+                (b)fita de entrada->processamento->fita de saída
+                (c)fita de saída->processamento->relatórios[relat.1, relat.2, relat.n]
+            - sistemas MULTIprogramáveis tempo compartilhado:
+                Realiza multitarefa ao atribuir aos programas fatias de tempo do
+                processador.
+                Se o programa não finalizar quando a fatia encerrar, o SO já coloca
+                outro para executar. Aquele que não finalizou é interrompido para
+                aguardar nova fatia.
+                O usuário interage com o SO através de linha de comando.
+                O SO cria um ambiente de trabalho próprio para cada usuário,
+                dando a impressão que todo o sistema está dedicado a este user.
+                Nesse sistema, há ganho de custo e tempo de resposta e custo devido
+                à utilização compartilhada dos diversos recursos do sistema.
+                O tempo de execução de uma tarefa pode variar SEM comprometer as
+                aplicações em execução.
+            - sistemas MULTIprogramáveis de tempo real:
+                Um programa utiliza o processador o tempo que for necessário ou até
+                que apareça outro mais prioritário.
+                A importância ou prioridade de execução de um programa é definida
+                pela própria aplicação, e não pelo SO.
+                O tempo de execução de uma tarefa deve estar dentro de limites
+                rígidos, que devem ser obedecidos, caso contrário poderão ocorrer
+                problemas irreparáveis.
+                Esse tipo de processamento é aplicado em sistemas de controle de
+                processos, usinas, refinarias, tráfego aéreo.
+    sistemas com múltiplos processadores:
+        Eles tem 2 ou mais UCPs interligadas e trabalhando em conjunto.
+        A vantagem é execução simultânea de diversos programas, também o
+        a repartição de um mesmo programa em várias partes para serem executadas
+        simultaneamente em mais de 1 processador.
+        Aplicadado em computação científica, desenvolvimento aerospacial, 
+        prospecção de petróleo, simulações, processamento de imagens, CAD 
+        (modelagem 2D, 3D)
+        Nesse sistema, surgem questões envolvendo a comunicação entre as UCPs
+        e o compartilhamento de memória.
+        Características e vantagens específicas:
+            -"escalabilidade" é a capacidade de ampliar o poder computacional
+            do sistemas apenas adicionando novos processadores.
+            -"disponibilidade" é a capacidade de manter o sistema em operação em
+            casos de falhas.
+            -"balanceamento de carga" é a possibilidade de distribuir o
+            processamento entre as diversas UCPSs da configuração a partir da
+            carga de trabalho de cada UCP, melhorando o desempenho do sistema
+            como um todo.
+        Classificação pelo compartilhamento de memória:
+            sistemas multiprocessados FORTEMENTE acoplados:
+                No mercado, cada caixa é um terminal que faz E/S cujo acesso
+                ao armazenamento central é compartilhada com os demais pdvs.
+                -Várias UCPs compartilhando 1 memória física, dispositivos E/S
+                gerenciados por 1 SO.
+                -Todos os processadores tem as mesmas funções.
+                S.M.P. Symmetric Multiprocessors:
+                    Caracterizam-se pelo tempo uniforme de acesso à memória
+                    principal pelos diversos processadores.
+                    Além dos ambientes industriais, científicos, este modelo
+                    simétrico atualmente também está nos computadores pessoais 
+                    (dual-core, quad-core,...)
+                N.U.M.A. Non-Uniform Memory Access:
+                    Apresentam diversos conjuntos reunindo UCPs e memória
+                    principal, sendo que cada conjunto é conectado aos outros
+                    através de uma rede de interconexão.
+                    Há variação no tempo de acesso à memória em função da
+                    localização física das UCPs.
+            sistemas multiprocessados FRACAMENTE acoplados:
+                Há 2 ou mais sistemas computacionais independentes conectados
+                através de linhas de comunicação.
+                Cada sistema possui: SO, UCP, memória, dispositivos E/S.
+                Também chamados sistemas multicomputadores.
+                Cada sistema computacional pode ter 1 ou mais UCPs.
+                Breve contexto histórico:
+                    Até meados dos anos 80, as aplicações eram tipicamente
+                    centralizadas em sistemas de grande porte com 1 ou mais
+                    processadores. Os usuários acessavem através de terminais não
+                    inteligentes (s/ processamento) conectados a linhas seriais 
+                    dedicadas ou linhas telefônicas públicas para a comunicação
+                    interativa com esses sistemas. Assim, usuário pede tarefa
+                    através do terminal, que encaminha requisição ao sistema,
+                    que processa e retorna resposta utilizando a mesma rede.
+                Modelo de rede de computadores(evolução dos FRACAMENTE):
+                    -Um ou mais sistemas independentes(hosts) conectados que
+                    fornecem serviços aos demais.
+                    -Nesse modelo, a informação deixa de ser CENTRALIZADA e passa
+                    a ser DISTRIBUÍDA.
+                Divisão pelo modelo de rede (com base na integração dos hosts):
+                    -sistemas operacionais de rede (SOR) como um sistema que
+                    compartilha o serviço de uma impressora com vários PCs
+                    -sistemas distribuídos (cluster) como 2 ou + servidores
+                    unidos por uma conexão de alto desempenho, onde o usuário ñ
+                    tem acesso a quem são os membros do cluster.
+                    -resumo: Nos sistemas distribuídos, o usuário enxerga a rede
+                    como um único sistema, enquanto nos sistemas operacionais
+                    de rede ele percebe que está utilizando recursos de 
+                    computadores diferentes.
+
+EXERCÍCIOS LIVRO Arquitetura de Computadores Cáp i:
+    1.As 2 principais funções são proporcionar facilidade no acesso aos recursos 
+    do sistema e gerenciar o compatilhamento dos recursos de forma organizada e
+    protegida. Cabe, então, ao SO servir de interface entre os usuários e os 
+    recursos disponíveis no sistema computacional(dispositivos, vídeo, impressora,
+    discos e fitas magnéticas). Graças ao SO, a comunicação entre esses recursos 
+    é transparente, a utilização de memória é eficiente e agiliza a forma de
+    trabalho.
+
+    2.Sem um SO, o desenvolvedor teria dificuldade de escrever qualquer programa,
+    pois teria que considerar todos os detalhes que o SO normalmente gerencia.
+    Do contrário, a aplicação provavelmente falharia e o algoritmo mais simples
+    teria um imenso trabalho para ser escrito afim que houvesse a execução
+    satisfatória.
+
+    3.A vantagem de utilizar o conceito de máquina virtual é que o programador
+    usufruiu das camadas de abstração que o SO preenche, assim o SO assume
+    toda a comunicação com o hardware, então o dev pode se dedica ao algoritmo
+
+    4.A máquina de camadas acontece quando o SO realiza a interface entre
+    usuário e os diversos recursos computacionais do sistema. Assim, ao ler um
+    arquivo, o usuário não especifica o end. de memória desse arquivo, mas sim
+    interage com o SO para realizar essa tarefa.
+
+    5.
+
+    6. Dizemos que existe uma subutilização pois a limitação desse tipo de SO
+    não permite a utilização simultanea de recursos computacionais. Ou seja,
+    numa operação de entrada de dados, o processador permanece ocioso pois o 
+    SO está gerenciando os dispisitivos de E/S nesse momento.
+
+    7. A grande diferença entre sistemas mono e multi é a possibilidade do SO
+    dar conta de gerir operações simultâneas envolvendo diversos recursos 
+    computacionais e usuários.
+
+    8.Principal vantagem dos sistemas multiprogramáveis é redução de custos 
+    decorrente da possibilidade do compartilhamento de recursos entre as 
+    aplicações.
+
+    9. Os sistemas multitarefas instalados em PCs, estações de trabalho são
+    exemplos de sistemas MONOusuário.
+
+    10.
+
+
+18/08/2026
+Aula 02 - Aula ????
+
+Revisão da aula passada.
+
+Realização e correção de exercícios do livro SELECIONADOS pelo prof.
+(a numeração dos exercícios escolhidos nos slides ñ confere com a 
+numeração do livro)
+(eu mantive a numeração do livro)
+            
+Matária nova: concorrência (capítulo 3)
+
+Diferença entre sistemas MONOprogramáveis E MULTIprogramáveis com relação à
+ociosidade dos recursos computacionais.
+
+Interrupção e Exceção: caracterísricas, ciclos e diferenças
+
+Controlador: os fabricantes de periféricos dependiam de compatibilidade das
+instruções com a UCP. Assim, o controlador surge para preencher esse gap
+comunicacional. Desse modo, os dispositivos E/S interrompem menos o processador
+pois a controladora cuida da comunicação
+
+CONTROLADORES ANTIGOS NÂO FAZEM PROCESSAMENTO, porém atualmente GPUs servem
+como "controladoras" de vídeo para renderização gráfica rápida e avançada
+
+controladores MIDI????
+
+Modelo de "E/S controlada por programa" vs "E/S controlada por Interrupção" É
+sobre resolver o problema do tempo ocioso da UCP com operações de E/S
+
+Canal de E/S???
+
+DMA Direct Memory Access e Buffering, alocação de blocos de dados, só
+depois que processa (aí sim interrompe a UCP)
+
+Exemplo: ao mandar imprimir um longo documento, todas as páginas vao pro buffer,
+e as páginas sao enviadas para impressora aos poucos pois ela não teria memoria
+suficiente para receber tudo de uma vez
+
+Reentrância: acesso simultaneo por colaboradores em doc compartilhado ñ envolve
+cópias locais sendo atualizadas, mas envio de comandos para alteração
+centralizada.
+
+Proteção do sistema:
+
+
+
+            
+                
+
+
