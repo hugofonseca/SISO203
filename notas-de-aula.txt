@@ -289,7 +289,7 @@ Reentrância: acesso simultaneo por colaboradores em doc compartilhado ñ envolv
 cópias locais sendo atualizadas, mas envio de comandos para alteração
 centralizada.
 
-Proteção do sistema:
+Proteção do sistema: <completar aqui>
 
 
 
